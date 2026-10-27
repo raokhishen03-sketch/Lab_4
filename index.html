@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FSKTM IT Club</title>
+  <style>
+    
+    /*Page Reset*/
+    * {/*Universal Selector*/
+      margin: 0;
+      padding: 0;
+      /* Prevents padding and border from being added to the element's total width and height */
+      box-sizing: border-box;
+    }
+
+    body {
+      /* use segoe ui as the primary font, with Arial and sans-serif as fallbacks */
+      font-family: "Segoe UI", Arial, sans-serif;
+      background-color: #eef2f5;
+      color: #1f2d3d;
+      line-height: 1.6;
+    }
+
+    /*  Main Container (column)  */
+    .container {
+      /* Use flexbox to arrange the child elements in a column */
+      display: flex;
+      flex-direction: column;
+      /*center the container horizontally and set a max width for larger screens */
+      width: 100%;
+      min-height: 600px;
+      max-width: 1100px;
+      margin: 0 auto;
+      background-color: #ffffff;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
+    }
+
+    /* 10px top spacing between regions */
+    .logo,
+    .navigation,
+    .content,
+    .footer {
+      margin-top: 10px;
+    }
+
+    .logo { margin-top: 0; }
+
+    /*  Logo / Header  */
+.logo {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  color: #ffffff;
+
+  /* Header image as background */
+  background-image: url("header.jpg");
+  background-size: cover;          /* fills the whole header */
+  background-position: center;     /* keeps the important part visible */
+  background-repeat: no-repeat;
+
+  /* Dark overlay so white text is readable on any image */
+  position: relative;
+  overflow: hidden;
+}
+
+/* The overlay layer (pseudo-element) */
+.logo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(13, 43, 69, 0.85) 0%,
+    rgba(13, 43, 69, 0.55) 55%,
+    rgba(13, 43, 69, 0.25) 100%
+  );
+  z-index: 1;
+}
+
+/* Keep the text above the overlay */
+.logo > div {
+  position: relative;
+  z-index: 2;
+}
+
+.logo h1 {
+  color: #ffffff;   /* white — the main title */
+  font-size: 1.9rem;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+}
+
+.logo p {
+  color: #49b8c9;   /* light cyan — the tagline */
+  font-size: 0.85rem;
+  opacity: 0.92;
+  margin-top: 2px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.45);
+}
+
+    /* ---------- Navigation ---------- */
+    .navigation {
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 24px;
+      background-color: #0d2b45;
+      flex-wrap: wrap;
+    }
+
+    .navigation a {
+      color: #e6f2f8;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 8px 14px;
+      border-radius: 4px;
+      transition: background-color 0.2s ease;
+    }
+
+    .navigation a:hover,
+    .navigation a.active {
+      background-color: #1f8a9e;
+      color: #ffffff;
+    }
+
+    /* ---------- Content (row) ---------- */
+    .content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      min-height: 400px;
+      gap: 10px; /* the 10% gap shown in the diagram */
+      padding: 10px;
+      background-color: #f7fafc;
+    }
+
+    /* ---------- Sidebar (20%) ---------- */
+    .side-bar {
+      width: 20%;
+      min-height: 380px;
+      background-color: #e2edf3;
+      border-left: 4px solid #1f8a9e;
+      padding: 18px 16px;
+      border-radius: 4px;
+    }
+
+    .side-bar h2 {
+      font-size: 1.1rem;
+      color: #0d2b45;
+      margin-bottom: 10px;
+    }
+
+    .side-bar h3 {
+      font-size: 0.95rem;
+      color: #16537e;
+      margin-top: 18px;
+      margin-bottom: 6px;
+    }
+
+    .side-bar p,
+    .side-bar li {
+      font-size: 0.85rem;
+      color: #33475b;
+    }
+
+    .side-bar ul {
+      list-style: disc;
+      margin-top: 8px;
+      padding-left: 20px;
+    }
+
+    .side-bar li {
+      margin-bottom: 8px;
+    }
+
+    .side-bar a {
+      color: #16537e;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .side-bar a:hover {
+      text-decoration: underline;
+    }
+
+    /* ---------- Body Area (70%) ---------- */
+    .body-area {
+      width: 70%;
+      min-height: 380px;
+      background-color: #ffffff;
+      padding: 22px 26px;
+      border-radius: 4px;
+      border: 1px solid #dbe6ee;
+    }
+
+    .body-area .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #1f8a9e;
+      font-weight: 700;
+    }
+
+    .body-area h2 {
+      font-size: 1.5rem;
+      color: #0d2b45;
+      margin: 6px 0 12px;
+    }
+
+    .body-area h3 {
+      font-size: 1.1rem;
+      color: #16537e;
+      margin: 20px 0 8px;
+      border-bottom: 2px solid #e2edf3;
+      padding-bottom: 4px;
+    }
+
+    .body-area p {
+      font-size: 0.92rem;
+      margin-bottom: 10px;
+    }
+
+    .body-area ul {
+      margin: 0 0 10px 20px;
+      font-size: 0.92rem;
+    }
+
+    .body-area li {
+      margin-bottom: 6px;
+    }
+
+    .body-area a {
+      color: #1f8a9e;
+      font-weight: 600;
+    }
+
+    /* ---------- Footer ---------- */
+    .footer {
+      min-height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      background-color: #0d2b45;
+      color: #cfe3ee;
+      font-size: 0.8rem;
+    }
+
+    /* ---------- Responsive (media query) ---------- */
+    @media (max-width: 768px) {
+      .content {
+        flex-direction: column;
+      }
+
+      .side-bar,
+      .body-area {
+        width: 100%;
+        min-height: auto;
+      }
+
+      .logo h1 {
+        font-size: 1.3rem;
+      }
+
+      .navigation {
+        padding: 8px 12px;
+      }
+
+      .navigation a {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- 1. LOGO / HEADER -->
+    <header class="logo">
+      <div>
+        <h1>FSKTM IT Club</h1>
+        <p>Learn. Build. Innovate. Together.</p>
+      </div>
+    </header>
+
+    <!-- 2. NAVIGATION -->
+    <nav class="navigation">
+      <a href="#" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#events">Events</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- 3. CONTENT (row: sidebar + body) -->
+    <div class="content">
+
+      <!-- Sidebar (20%) -->
+      <aside class="side-bar">
+        <h2>Club Corner</h2>
+        <p>Explore activities and opportunities available to our members.</p>
+
+        <ul>
+          <li><a href="#events">Upcoming Events</a></li>
+          <li><a href="#resources">Learning Resources</a></li>
+          <li><a href="#join">Join the Club</a></li>
+        </ul>
+
+        <h3>Weekly Meet-up</h3>
+        <p>Wednesday, 3:00 PM<br />Student Activity Room</p>
+      </aside>
+
+      <!-- Body area (70%) -->
+      <main class="body-area">
+        <p class="eyebrow">Welcome to our community</p>
+        <h2>Discover Technology, Create Possibilities</h2>
+        <p>
+          Welcome to Campus Tech Society! We are a student-led community that brings
+          together people interested in web development, programming, design and
+          emerging technology.
+        </p>
+
+        <h3 id="about">About Our Club</h3>
+        <p>
+          Our mission is to help students build practical skills through hands-on
+          workshops, mini projects and knowledge-sharing sessions. Everyone is
+          welcome, including beginners.
+        </p>
+
+        <h3 id="events">Upcoming Activities</h3>
+        <ul>
+          <li><strong>HTML &amp; CSS Workshop:</strong> Create your first website.</li>
+          <li><strong>Hackathon Day:</strong> Build an idea with your team.</li>
+          <li><strong>Tech Talk:</strong> Learn from industry speakers.</li>
+        </ul>
+
+        <h3 id="resources">Learning Resources</h3>
+        <p>
+          Start learning with free tutorials at
+          <a href="https://www.w3schools.com" target="_blank" rel="noopener">W3 Schools</a>.
+        </p>
+      </main>
+
+    </div>
+
+    <!-- 4. FOOTER -->
+    <footer class="footer">
+      &copy; 2026 FSKTM IT Club. All rights reserved.
+    </footer>
+
+  </div>
+
+</body>
+</html>
