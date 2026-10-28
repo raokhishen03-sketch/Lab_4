@@ -31,6 +31,7 @@
       width: 100%;
       min-height: 600px;
       max-width: 1100px;
+      padding: 10px;
       margin: 0 auto;
       background-color: #ffffff;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
@@ -51,39 +52,21 @@
   min-height: 100px;
   display: flex;
   align-items: center;
-  padding: 0 24px;
+  padding: 0 50px;
   color: #ffffff;
+  border-radius: 6px;
 
   /* Header image as background */
   background-image: url("header.jpg");
   background-size: cover;          /* fills the whole header */
   background-position: center;     /* keeps the important part visible */
-  background-repeat: no-repeat;
+  background-repeat: no-repeat;    /* prevents tiling of the image */
 
   /* Dark overlay so white text is readable on any image */
   position: relative;
   overflow: hidden;
 }
 
-/* The overlay layer (pseudo-element) */
-.logo::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    90deg,
-    rgba(13, 43, 69, 0.85) 0%,
-    rgba(13, 43, 69, 0.55) 55%,
-    rgba(13, 43, 69, 0.25) 100%
-  );
-  z-index: 1;
-}
-
-/* Keep the text above the overlay */
-.logo > div {
-  position: relative;
-  z-index: 2;
-}
 
 .logo h1 {
   color: #ffffff;   /* white — the main title */
@@ -109,6 +92,7 @@
       padding: 0 24px;
       background-color: #0d2b45;
       flex-wrap: wrap;
+      border-radius: 4px;
     }
 
     .navigation a {
@@ -121,8 +105,8 @@
       transition: background-color 0.2s ease;
     }
 
-    .navigation a:hover,
-    .navigation a.active {
+    .navigation a:hover
+     {
       background-color: #1f8a9e;
       color: #ffffff;
     }
@@ -134,7 +118,6 @@
       justify-content: space-between;
       min-height: 400px;
       gap: 10px; /* the 10% gap shown in the diagram */
-      padding: 10px;
       background-color: #f7fafc;
     }
 
@@ -143,7 +126,6 @@
       width: 20%;
       min-height: 380px;
       background-color: #e2edf3;
-      border-left: 4px solid #1f8a9e;
       padding: 18px 16px;
       border-radius: 4px;
     }
@@ -155,6 +137,7 @@
     }
 
     .side-bar h3 {
+      border-top: 2px solid #8da3ad;
       font-size: 0.95rem;
       color: #16537e;
       margin-top: 18px;
@@ -179,7 +162,6 @@
 
     .side-bar a {
       color: #16537e;
-      text-decoration: none;
       font-weight: 600;
     }
 
@@ -198,6 +180,10 @@
     }
 
     .body-area .eyebrow {
+      display: inline-block;
+      background-color: #e2edf3;
+      padding: 4px 8px;
+      border-radius: 20px;
       font-size: 0.75rem;
       letter-spacing: 1.5px;
       text-transform: uppercase;
@@ -240,6 +226,7 @@
 
     /* ---------- Footer ---------- */
     .footer {
+      border-radius: 4px;
       min-height: 20px;
       display: flex;
       align-items: center;
